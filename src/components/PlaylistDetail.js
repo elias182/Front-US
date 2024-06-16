@@ -15,7 +15,7 @@ const PlaylistDetail = ({ setCurrentSong }) => {
 
   useEffect(() => {
     console.log('Playlist ID:', id);
-    fetch(`http://127.0.0.1:8000/api/listarep/${id}`)
+    fetch(`http://backend-us-production-8ae2.up.railway.app/api/listarep/${id}`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Error al obtener la lista de reproducción');
@@ -39,7 +39,7 @@ const PlaylistDetail = ({ setCurrentSong }) => {
 
   const handleDeleteSong = async (songId) => {
     try {
-      const response = await fetch(`http://127.0.0.1:8000/api/eliminarsong/${songId}`, {
+      const response = await fetch(`http://backend-us-production-8ae2.up.railway.app/api/eliminarsong/${songId}`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('accessToken')}`,
           'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ const PlaylistDetail = ({ setCurrentSong }) => {
       }
   
       // Recargar los datos de la lista de reproducción después de eliminar la canción
-      const updatedResponse = await fetch(`http://127.0.0.1:8000/api/listarep/${id}`);
+      const updatedResponse = await fetch(`http://backend-us-production-8ae2.up.railway.app/api/listarep/${id}`);
       const updatedData = await updatedResponse.json();
       setSongs(updatedData.songs || []);
     } catch (error) {

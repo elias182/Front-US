@@ -19,7 +19,7 @@ const SongDetails = () => {
   const token = localStorage.getItem('accessToken');
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/cancion/${id}`)
+    fetch(`http://backend-us-production-8ae2.up.railway.app/cancion/${id}`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Error al obtener la canción');
@@ -33,8 +33,8 @@ const SongDetails = () => {
         if (userProfile && userProfile.id) {
           // Based on song creator, fetch notes
           const fetchUrl = data.id_usuario === userProfile.id 
-            ? 'http://127.0.0.1:8000/notasuserpropietario'
-            : 'http://127.0.0.1:8000/notasuser';
+            ? 'http://backend-us-production-8ae2.up.railway.app/notasuserpropietario'
+            : 'http://backend-us-production-8ae2.up.railway.app/notasuser';
 
           fetch(fetchUrl, {
             method: 'POST',
@@ -87,7 +87,7 @@ const SongDetails = () => {
       part_letra: selectedLyricIndex + 1
     };
 
-    fetch('http://127.0.0.1:8000/api/notas', {
+    fetch('http://backend-us-production-8ae2.up.railway.app/api/notas', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -113,7 +113,7 @@ const SongDetails = () => {
   };
 
   const handleDeleteNote = (noteId) => {
-    fetch(`http://127.0.0.1:8000/api/borrarnota/${noteId}`, {
+    fetch(`http://backend-us-production-8ae2.up.railway.app/api/borrarnota/${noteId}`, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -198,7 +198,7 @@ const SongDetails = () => {
       <button className={"playlist-button"} onClick={() => navigate(`/anadir-a-playlist/${song.id}`)}> {/* Botón para añadir a playlist */}
         Añadir a Playlist
       </button>
-      <img src={`http://127.0.0.1:8000/${song.portada}`} alt="Portada" style={{ maxWidth: '200px', marginBottom: '10px' }} />
+      <img src={`http://backend-us-production-8ae2.up.railway.app/${song.portada}`} alt="Portada" style={{ maxWidth: '200px', marginBottom: '10px' }} />
       {userProfile && userProfile.id === song.id_usuario && (
         <button className={"playlistedit-button"} onClick={handleEditClick}>Editar Canción</button>
       )}
