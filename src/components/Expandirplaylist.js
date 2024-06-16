@@ -15,7 +15,7 @@ function Expandir() {
   }, [userProfile, token]);
 
   const fetchPlaylists = () => {
-    fetch(`http://backend-us-production-8ae2.up.railway.app/api/biblioteca/${userProfile.id}`, {
+    fetch(`https://backend-us-production-8ae2.up.railway.app/api/biblioteca/${userProfile.id}`, {
       headers: {
         'Authorization': `Bearer ${token}`
       }
@@ -27,7 +27,7 @@ function Expandir() {
 
   const handlePlaylistClick = (playlistId) => {
     console.log("idcancion:" + idCancion + " idplaylist:" + playlistId)
-    fetch('http://backend-us-production-8ae2.up.railway.app/api/expandirplaylist', {
+    fetch('https://backend-us-production-8ae2.up.railway.app/api/expandirplaylist', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

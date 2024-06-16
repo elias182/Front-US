@@ -18,7 +18,7 @@ const Register = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    fetch('http://backend-us-production-8ae2.up.railway.app/api/registro', {
+    fetch('https://backend-us-production-8ae2.up.railway.app/api/registro', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

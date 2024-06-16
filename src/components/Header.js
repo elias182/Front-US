@@ -17,7 +17,7 @@ function Header() {
         {isAuthenticated ? (
           <div className="login-register">
             <img 
-              src={`http://backend-us-production-8ae2.up.railway.app/${userProfile?.foto}` || `${process.env.PUBLIC_URL}/avatar_placeholder.jpg`} 
+              src={`https://backend-us-production-8ae2.up.railway.app/${userProfile?.foto}` || `${process.env.PUBLIC_URL}/avatar_placeholder.jpg`} 
               alt="Avatar" 
               className="avatar" 
               onClick={handleProfileClick}

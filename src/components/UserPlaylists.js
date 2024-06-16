@@ -24,7 +24,7 @@ function UserPlaylists() {
 
   const fetchPlaylists = () => {
     setLoading(true);
-    fetch(`http://backend-us-production-8ae2.up.railway.app/api/biblioteca/${userProfile.id}`, {
+    fetch(`https://backend-us-production-8ae2.up.railway.app/api/biblioteca/${userProfile.id}`, {
       headers: {
         'Authorization': `Bearer ${token}`
       }
@@ -54,7 +54,7 @@ function UserPlaylists() {
   };
 
   const handleSaveClick = () => {
-    fetch(`http://backend-us-production-8ae2.up.railway.app/api/actualizarlist/${editData.id}`, {
+    fetch(`https://backend-us-production-8ae2.up.railway.app/api/actualizarlist/${editData.id}`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -71,7 +71,7 @@ function UserPlaylists() {
   };
 
   const handleDeleteClick = (id) => {
-    fetch(`http://backend-us-production-8ae2.up.railway.app/api/eliminarlist/${id}`, {
+    fetch(`https://backend-us-production-8ae2.up.railway.app/api/eliminarlist/${id}`, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${token}`
@@ -103,7 +103,7 @@ function UserPlaylists() {
   };
 
   const handleAddSaveClick = () => {
-    fetch(`http://backend-us-production-8ae2.up.railway.app/api/crearlist`, {
+    fetch(`https://backend-us-production-8ae2.up.railway.app/api/crearlist`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${token}`,

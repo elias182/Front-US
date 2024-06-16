@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
 
   const fetchUserProfile = async (token) => {
     try {
-      const response = await fetch('http://backend-us-production-8ae2.up.railway.app/api/user-profile', {
+      const response = await fetch('https://backend-us-production-8ae2.up.railway.app/api/user-profile', {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,

@@ -79,7 +79,7 @@ function Footer({ currentSong }) {
     <div className="footer d-flex justify-content-between align-items-center p-3">
       <div className="playing-now d-flex align-items-center">
         {currentSong && currentSong.portada ? (
-          <img src={`http://backend-us-production-8ae2.up.railway.app/${currentSong.portada}`} alt="Album Cover" className="album-cover me-3" />
+          <img src={`https://backend-us-production-8ae2.up.railway.app/${currentSong.portada}`} alt="Album Cover" className="album-cover me-3" />
         ) : (
           <img src={`${process.env.PUBLIC_URL}/avatar_placeholder.jpg`} alt="Album Cover" className="album-cover me-3" />
         )}
@@ -126,7 +126,7 @@ function Footer({ currentSong }) {
           onTimeUpdate={handleTimeUpdate}
           onError={handleAudioError}
         >
-          <source src={`http://backend-us-production-8ae2.up.railway.app/${currentSong.archivo_audio}`} type="audio/mpeg" />
+          <source src={`https://backend-us-production-8ae2.up.railway.app/${currentSong.archivo_audio}`} type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
       )}

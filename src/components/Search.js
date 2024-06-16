@@ -21,7 +21,7 @@ const Search = ({ setCurrentSong }) => {
             setResults(null);
 
             try {
-                const response = await fetch(`http://backend-us-production-8ae2.up.railway.app/search/${query}`);
+                const response = await fetch(`https://backend-us-production-8ae2.up.railway.app/search/${query}`);
                 if (!response.ok) {
                     throw new Error('Error al realizar la búsqueda');
                 }

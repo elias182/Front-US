@@ -14,7 +14,7 @@ const LoginComponent = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://backend-us-production-8ae2.up.railway.app/api/login', {
+      const response = await fetch('https://backend-us-production-8ae2.up.railway.app/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

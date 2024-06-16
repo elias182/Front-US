@@ -19,7 +19,7 @@ function AñadirCancion() {
   const token = localStorage.getItem('accessToken');
 
   useEffect(() => {
-    fetch('http://backend-us-production-8ae2.up.railway.app/api/generos')
+    fetch('https://backend-us-production-8ae2.up.railway.app/api/generos')
       .then(response => response.json())
       .then(data => setGeneros(data))
       .catch(error => console.error('Error fetching genres:', error));
@@ -27,13 +27,13 @@ function AñadirCancion() {
 
   useEffect(() => {
     if (id) {
-      fetch(`http://backend-us-production-8ae2.up.railway.app/api/cancion/${id}`)
+      fetch(`https://backend-us-production-8ae2.up.railway.app/api/cancion/${id}`)
         .then(response => response.json())
         .then(data => {
           setTitulo(data.titulo);
           setLetra(data.letra);
           setIdGenero(data.id_genero);
-          setPortadaUrl(`http://backend-us-production-8ae2.up.railway.app/${data.portada}`);
+          setPortadaUrl(`https://backend-us-production-8ae2.up.railway.app/${data.portada}`);
         })
         .catch(error => console.error('Error fetching song:', error));
     }
@@ -55,7 +55,7 @@ function AñadirCancion() {
     if (portada) formData.append('portada', portada);
     if (userProfile) formData.append('id_usuario', userProfile.id);
   
-    const url = id ? `http://backend-us-production-8ae2.up.railway.app/api/editarcancion/${id}` : 'http://backend-us-production-8ae2.up.railway.app/api/anadircancion';
+    const url = id ? `https://backend-us-production-8ae2.up.railway.app/api/editarcancion/${id}` : 'https://backend-us-production-8ae2.up.railway.app/api/anadircancion';
     const method = 'POST';
   
     try {

@@ -9,7 +9,7 @@ function Artista() {
   const [previewPhoto, setPreviewPhoto] = useState(`${process.env.PUBLIC_URL}/avatar_placeholder.jpg`);
 
   useEffect(() => {
-    fetch(`http://backend-us-production-8ae2.up.railway.app/api/artista/${id}`)
+    fetch(`https://backend-us-production-8ae2.up.railway.app/api/artista/${id}`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Error al obtener la lista de reproducción');
@@ -27,7 +27,7 @@ function Artista() {
 useEffect(() => {
     // Verifica que tengamos la información del artista antes de realizar la solicitud
     if (id && artistaInfo) {
-      fetch(`http://backend-us-production-8ae2.up.railway.app/api/usersongs/${id}`)
+      fetch(`https://backend-us-production-8ae2.up.railway.app/api/usersongs/${id}`)
         .then(response => {
           if (!response.ok) {
             throw new Error('Error al obtener las canciones del artista');
@@ -46,7 +46,7 @@ useEffect(() => {
   
   useEffect(() => {
     if (artistaInfo && artistaInfo.foto) {
-      setPreviewPhoto(`http://backend-us-production-8ae2.up.railway.app/${artistaInfo.foto}`);
+      setPreviewPhoto(`https://backend-us-production-8ae2.up.railway.app/${artistaInfo.foto}`);
     }
   }, [artistaInfo]);
 

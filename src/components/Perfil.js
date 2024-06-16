@@ -21,14 +21,14 @@ function Perfil() {
 
   useEffect(() => {
     if (userProfile?.foto) {
-      setPreviewPhoto(`http://backend-us-production-8ae2.up.railway.app/${userProfile.foto}`);
+      setPreviewPhoto(`https://backend-us-production-8ae2.up.railway.app/${userProfile.foto}`);
     }
   }, [userProfile]);
 
   useEffect(() => {
     if (userProfile && token) {
       setLoadingSongs(true);
-      fetch(`http://backend-us-production-8ae2.up.railway.app/api/usersongs/${userProfile.id}`, {
+      fetch(`https://backend-us-production-8ae2.up.railway.app/api/usersongs/${userProfile.id}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -80,7 +80,7 @@ function Perfil() {
       formData.append('photo', editData.photo);
     }
 
-    fetch(`http://backend-us-production-8ae2.up.railway.app/api/useredit/${userProfile.id}`, {
+    fetch(`https://backend-us-production-8ae2.up.railway.app/api/useredit/${userProfile.id}`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${token}`
@@ -107,11 +107,11 @@ function Perfil() {
       email: userProfile?.email || '',
       photo: null,
     });
-    setPreviewPhoto(userProfile?.foto ? `http://backend-us-production-8ae2.up.railway.app/${userProfile.foto}` : `${process.env.PUBLIC_URL}/avatar_placeholder.jpg`);
+    setPreviewPhoto(userProfile?.foto ? `https://backend-us-production-8ae2.up.railway.app/${userProfile.foto}` : `${process.env.PUBLIC_URL}/avatar_placeholder.jpg`);
   };
 
   const handleDeleteClick = (cancionId) => {
-    fetch(`http://backend-us-production-8ae2.up.railway.app/api/borrarcancion/${cancionId}`, {
+    fetch(`https://backend-us-production-8ae2.up.railway.app/api/borrarcancion/${cancionId}`, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${token}`
