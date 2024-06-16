@@ -1,0 +1,69 @@
+/* Perfil.css */
+
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+  }
+  
+  .perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    height: 70vh;
+    overflow-y: auto;
+    color: white;
+  }
+  
+  .perfil-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .perfil-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+  
+  .perfil-name-edit {
+    display: flex;
+    align-items: center;
+  }
+  
+  .edit-icon {
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  
+  .perfil-info {
+    margin-bottom: 20px;
+  }
+  
+  .perfil-canciones {
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .perfil-canciones ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .perfil-canciones li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .delete-icon {
+    cursor: pointer;
+    color: red;
+  }
+  

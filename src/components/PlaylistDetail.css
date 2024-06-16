@@ -1,0 +1,29 @@
+/* PlaylistDetail.css */
+
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+  }
+  
+  .song-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .play-button {
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .song-link {
+    text-decoration: none;
+    color: #ffffff;
+  }
+  
+  .song-link:hover {
+    text-decoration: underline;
+  }
+  

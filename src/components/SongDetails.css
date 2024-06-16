@@ -1,0 +1,74 @@
+.song-details-container {
+    font-family: Arial, sans-serif;
+    height: 75vh;
+    overflow-y: auto;
+    border-radius: 15px;
+    color: white;
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+  }
+  .playlist-button{
+    max-width: 150px;
+    border-radius: 15px 15px 0 0 ;
+    margin-top: 50px;
+  }
+  .playlistedit-button{
+    max-width: 150px;
+    border-radius: 0 0 15px 15px;
+  }
+  
+  .song-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .song-artist {
+    font-weight: bold;
+  }
+  
+  .lyric-item {
+    cursor: pointer;
+
+    padding: 5px;
+    margin: 5px 0;
+  }
+  
+  .note-form {
+    margin-top: 20px;
+  }
+  
+  .note-textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+  }
+  
+  .note-button {
+    margin-right: 10px;
+  }
+  .song-details-container img {
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    width: 150px;
+    height: 150px;
+    margin-bottom: 0;
+  }
+
+  .note-actions{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  .note-button{
+    width: 50px;
+    border-radius: 15px;
+  }
+  .note-toggle-button{
+    width: 50px;
+    border-radius: 15px;
+  }
+
+  
+  

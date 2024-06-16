@@ -1,0 +1,91 @@
+/* Search.css */
+.searchdiv{
+  height: 75vh;
+  overflow-y: auto;
+}
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+}
+
+.searchBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.searchInput {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+
+.searchButton svg {
+  vertical-align: middle;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 5px 0;
+}
+
+.active {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.searchBox {
+  display: flex;
+  max-width: 280px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: #2f3640;
+  border-radius: 15px;
+  position: relative;
+  margin-top: 10px;
+  height: 60px;
+}
+
+.searchButton {
+  color: white;
+  position: absolute;
+  right: 8px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--gradient-2, linear-gradient(90deg, #750000 0%, #ff0000 50%, #ad003a 100%));
+  border: 0;
+  display: inline-block;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+}
+/*hover effect*/
+.searchButton:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 10px 20px;
+  transform: translateY(-3px);
+}
+/*button pressing effect*/
+button:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+.searchInput {
+  border: none;
+  background: none;
+  outline: none;
+  color: white;
+  font-size: 15px;
+  padding: 24px 46px 24px 26px;
+}

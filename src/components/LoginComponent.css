@@ -1,0 +1,229 @@
+
+    
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      padding: 24px;
+    }
+    
+    /*checkbox to switch from sign up to login*/
+    #chk {
+      display: none;
+    }
+    
+    /*Login*/
+    .login {
+      position: relative;
+      
+
+    }
+    
+
+    label {
+      color: #fff;
+      font-size: 2rem;
+      justify-content: center;
+      display: flex;
+      font-weight: bold;
+      cursor: pointer;
+      transition: .5s ease-in-out;
+    }
+    
+    .input {
+      width: 100%;
+      height: 40px;
+      background: #e0dede;
+      padding: 10px;
+      border: none;
+      outline: none;
+      border-radius: 4px;
+    }
+    
+    /*Register*/
+    .register {
+      background: #eee;
+      border-radius: 80% / 10%;
+      transform: translateY(5%);
+      transition: .8s ease-in-out;
+    }
+    
+    .register label {
+      color: #573b8a;
+      transform: scale(.6);
+    }
+    
+    #chk:checked ~ .register {
+      transform: translateY(-60%);
+    }
+    
+    #chk:checked ~ .register label {
+      transform: scale(1);
+      margin: 10% 0 5%;
+    }
+    
+    #chk:checked ~ .login label {
+      transform: scale(.6);
+      margin: 5% 0 5%;
+    }   
+    /*Button*/
+    .form button {
+      width: 85%;
+      height: 40px;
+      margin: 12px auto 10%;
+      color: #fff;
+      background: #573b8a;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: .2s ease-in;
+    }
+    
+    .form button:hover {
+      background-color: #6d44b8;
+    }
+  
+  
+  
+  
+  
+    /* lodaer */
+  
+  .contenedor {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    
+  }
+  
+  .cubes {
+    position: absolute;
+    transform-style: preserve-3d;
+  }
+  
+  .loop {
+    transform: rotateX(-35deg) rotateY(-45deg) translateZ(1.5625em);
+  }
+  
+  @keyframes s {
+    to {
+      transform: scale3d(0.2, 0.2, 0.2);
+    }
+  }
+  
+  .item {
+    margin: -1.5625em;
+    width: 3.125em;
+    height: 3.125em;
+    transform-origin: 50% 50% -1.5625em;
+    box-shadow: 0 0 0.125em currentColor;
+    background: currentColor;
+    animation: s 0.6s cubic-bezier(0.45, 0.03, 0.51, 0.95) infinite alternate;
+  }
+  
+  .item:before,
+  .item:after {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    transform-origin: 0 100%;
+    box-shadow: inherit;
+    background: currentColor;
+    content: "";
+  }
+  
+  .item:before {
+    bottom: 100%;
+    transform: rotateX(90deg);
+  }
+  
+  .item:after {
+    left: 100%;
+    transform: rotateY(90deg);
+  }
+  
+  .item:nth-child(1) {
+    margin-top: 6.25em;
+    color: #9c27b0; /* Morado */
+    animation-delay: -1.2s;
+  }
+  
+  .item:nth-child(1):before {
+    color: #7b1fa2; /* Morado oscuro */
+  }
+  
+  .item:nth-child(1):after {
+    color: #e91e63; /* Rosa intenso */
+  }
+  
+  .item:nth-child(2) {
+    margin-top: 3.125em;
+    color: #2196f3; /* Azul eléctrico */
+    animation-delay: -1s;
+  }
+  
+  .item:nth-child(2):before {
+    color: #1565c0; /* Azul eléctrico oscuro */
+  }
+  
+  .item:nth-child(2):after {
+    color: #ff4081; /* Rosa intenso */
+  }
+  
+  .item:nth-child(3) {
+    margin-top: 0em;
+    color: #e91e63; /* Rosa intenso */
+    animation-delay: -0.8s;
+  }
+  
+  .item:nth-child(3):before {
+    color: #ba68c8; /* Morado */
+  }
+  
+  .item:nth-child(3):after {
+    color: #4a148c; /* Morado oscuro */
+  }
+  
+  .item:nth-child(4) {
+    margin-top: -3.125em;
+    color: #7b1fa2; /* Morado oscuro */
+    animation-delay: -0.6s;
+  }
+  
+  .item:nth-child(4):before {
+    color: #9c27b0; /* Morado */
+  }
+  
+  .item:nth-child(4):after {
+    color: #e91e63; /* Rosa intenso */
+  }
+  
+  .item:nth-child(5) {
+    margin-top: -6.25em;
+    color: #ff4081; /* Rosa intenso */
+    animation-delay: -0.4s;
+  }
+  
+  .item:nth-child(5):before {
+    color: #1565c0; /* Azul eléctrico oscuro */
+  }
+  
+  .item:nth-child(5):after {
+    color: #2196f3; /* Azul eléctrico */
+  }
+  
+  .item:nth-child(6) {
+    margin-top: -9.375em;
+    color: #4a148c; /* Morado oscuro */
+    animation-delay: -0.2s;
+  }
+  
+  .item:nth-child(6):before {
+    color: #7b1fa2; /* Morado oscuro */
+  }
+  
+  .item:nth-child(6):after {
+    color: #9c27b0; /* Morado */
+  }

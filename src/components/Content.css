@@ -1,0 +1,64 @@
+.content {
+    
+    flex: 1;
+    color: white;
+  }
+  .playlists, .episodes {
+    margin-bottom: 20px;
+  }
+  
+  .playlists, .episodes {
+    width: 45%;
+  }
+  
+  h2 {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    border-bottom: 1px solid #ccc;
+    padding: 1em 0;
+  }
+  
+  li h3 {
+    margin: 0;
+  }
+  
+  li p {
+    margin: 0.5em 0 0;
+  }
+  .all{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 6fr)); /* Columnas automáticas */
+    grid-gap: 20px; /* Espacio entre las columnas */
+    width: 80vw;
+  }
+  
+  .playl {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .listeach {
+    background-color: rgb(99, 0, 0);
+    border-radius: 15px;
+    border: none;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+
+
+
+
+
+
+  

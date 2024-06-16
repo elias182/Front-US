@@ -1,0 +1,122 @@
+:root {
+  --progressUsed: #440000;
+  --progressLeft: #ccc;
+  --progressSlider: rgb(255, 0, 0);
+  --bufferLoaded: #555;
+}
+
+.footer {
+  background-color: #282828;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 15px;
+}
+
+.playing-now {
+  display: flex;
+  align-items: center;
+}
+
+.album-cover {
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+}
+
+.song-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.song-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.artist-name {
+  font-size: 14px;
+  color: #b3b3b3;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+}
+
+.controls button {
+  background-color: #8c9690;
+  border: none;
+  color: #fff;
+  padding: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.controls button:hover {
+  background-color: #000000;
+}
+
+.progress-bar-container,
+.volume-bar-container {
+  width: 300px;
+}
+
+.volume-control {
+  display: flex;
+  align-items: center;
+}
+
+.volume-bar {
+  width: 100%;
+  height: 10px;
+  -webkit-appearance: none;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  border-radius: 5px;
+}
+
+.volume-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #440000;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.volume-bar::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #ffffff;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+@media (max-width: 700px) {
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .progress-bar-container {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .playing-now,
+  .controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .volume-control {
+    display: none;
+  }
+}

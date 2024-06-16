@@ -1,0 +1,99 @@
+
+
+.sidebar {
+    width: 240px;
+    background-color: #2A0000;
+    color: white;
+    height: 99vh;
+    padding: px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    margin-top: 0.5vh;
+    margin-bottom: 0.5vh;
+    margin-left: 10px;
+  }
+  .sidebar a {
+    color: white;
+    text-decoration: none;
+    margin: 10px 0;
+  }
+  .sidebar a.active {
+    font-weight: bold;
+  }
+  img{
+    width: 200px;
+  }
+
+  .sidebar a {
+    width: 100%;
+    padding: 15px 0; /* Ajustar el padding */
+    text-decoration: none;
+    color: #b3b3b3;
+    display: flex;
+    flex-direction: column; /* Alinear los iconos y el texto verticalmente */
+    align-items: center;
+    position: relative;
+    transition: color 0.3s;
+  }
+  
+  .sidebar a.active {
+    color:#750000 ;
+  }
+  
+  .sidebar a:hover {
+    color: white;
+  }
+  
+  .icon {
+    font-size: 30px; /* Aumentar el tamaño del icono */
+    
+  }
+  
+  .link-text {
+    font-size: 18px; /* Ajustar el tamaño del texto */
+    left: 100px; /* Posicionar el texto fuera de la barra lateral */
+    top: 10px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s, top 0.3s;
+    align-items: center;
+  }
+  
+  .sidebar a:hover .link-text {
+    opacity: 1;
+    top: 50px; /* Mostrar el texto al hacer hover */
+  }
+  .song-link {
+    text-decoration: none;
+    color: #ffffff;
+  }
+  .edit-icon{
+    color: white;
+  }
+
+
+  /* Estilos para pantallas más pequeñas que 700px */
+  @media (max-width: 900px) {
+    .sidebar {
+      order: 2;
+      margin-top: 10px;
+      flex-direction: row;
+      height: min-content;
+      width: 100vw;
+      margin-left: 0;
+      border-radius: 0px;
+      margin-bottom: 0vh;
+      margin-top: 0vh;
+    }
+    .active:first-child{
+      display: none;
+    }
+    .PRIM{
+      display: none;
+    }
+    .playlist-button{
+      margin-top: 0;
+    }
+  }
