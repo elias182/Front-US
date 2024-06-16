@@ -9,7 +9,7 @@ function Content() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('http://backend-us-production-8ae2.up.railway.app/api/listsprin')
+    fetch('https://backend-us-production-8ae2.up.railway.app/api/listsprin')
       .then(response => {
         if (!response.ok) {
           throw new Error('Error al obtener las listas de reproducción');
