@@ -55,7 +55,7 @@ function AñadirCancion() {
     if (portada) formData.append('portada', portada);
     if (userProfile) formData.append('id_usuario', userProfile.id);
   
-    const url = id ? `http://85.57.241.122:8000/api/editarcancion/${id}` : 'http://85.57.241.122:8000/api/anadircancion';
+    const url = id ? `https://5cf3-85-57-241-122.ngrok-free.app/api/editarcancion/${id}` : 'https://5cf3-85-57-241-122.ngrok-free.app/api/anadircancion';
     const method = 'POST';
   
     try {
