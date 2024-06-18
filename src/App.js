@@ -17,8 +17,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Artista from './components/Artista';
 import Expandir from './components/Expandirplaylist';
-
-
+import Error404 from './components/Error404'; // Import the Error404 component
 
 function App() {
   const [currentSong, setCurrentSong] = useState(null);
@@ -44,6 +43,7 @@ function App() {
               <Route path="/cancion/:id" element={<SongDetails />} />
               <Route path="/artista/:id" element={<Artista />} />
               <Route path="/anadir-a-playlist/:idCancion" element={<Expandir />} />
+              <Route path="/*" element={<Error404 />} /> {/* Catch-all route for 404 */}
             </Routes>
           </div>
           <Footer currentSong={currentSong} />
