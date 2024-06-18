@@ -198,7 +198,7 @@ const SongDetails = () => {
       <button className={"playlist-button"} onClick={() => navigate(`/anadir-a-playlist/${song.id}`)}> {/* Botón para añadir a playlist */}
         Añadir a Playlist
       </button>
-      <img src={`https://backend-us-production-8ae2.up.railway.app/${song.portada}`} alt="Portada" style={{ maxWidth: '200px', marginBottom: '10px' }} />
+      <img src={`https://5cf3-85-57-241-122.ngrok-free.app/${song.portada}`} alt="Portada" style={{ maxWidth: '200px', marginBottom: '10px' }} />
       {userProfile && userProfile.id === song.id_usuario && (
         <button className={"playlistedit-button"} onClick={handleEditClick}>Editar Canción</button>
       )}
