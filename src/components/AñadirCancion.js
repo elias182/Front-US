@@ -55,7 +55,7 @@ function AñadirCancion() {
     if (portada) formData.append('portada', portada);
     if (userProfile) formData.append('id_usuario', userProfile.id);
   
-    const url = id ? `https://backend-us-production-8ae2.up.railway.app/api/editarcancion/${id}` : 'https://backend-us-production-8ae2.up.railway.app/api/anadircancion';
+    const url = id ? `http://85.57.241.122:8000/api/editarcancion/${id}` : 'http://85.57.241.122:8000/api/anadircancion';
     const method = 'POST';
   
     try {
