@@ -80,7 +80,7 @@ function Perfil() {
       formData.append('photo', editData.photo);
     }
 
-    fetch(`https://backend-us-production-8ae2.up.railway.app/api/useredit/${userProfile.id}`, {
+    fetch(`https://5cf3-85-57-241-122.ngrok-free.app/api/useredit/${userProfile.id}`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${token}`

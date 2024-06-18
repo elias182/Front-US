@@ -126,7 +126,7 @@ function Footer({ currentSong }) {
           onTimeUpdate={handleTimeUpdate}
           onError={handleAudioError}
         >
-          <source src={`https://backend-us-production-8ae2.up.railway.app/${currentSong.archivo_audio}`} type="audio/mpeg" />
+          <source src={`https://5cf3-85-57-241-122.ngrok-free.app/${currentSong.archivo_audio}`} type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
       )}
