@@ -37,6 +37,7 @@ function Footer({ currentSong }) {
       audioRef.current.currentTime = newTime;
     }
   };
+  
 
   const handleVolumeChange = (e) => {
     const newVolume = e.target.value;
@@ -68,6 +69,7 @@ function Footer({ currentSong }) {
       }
     }
   };
+  
 
   const handleAudioError = (e) => {
     console.error('Audio Error:', e);
@@ -87,9 +89,9 @@ function Footer({ currentSong }) {
         </div>
       </div>
       <div className="controls d-flex align-items-center">
-        <div className="icon" onClick={togglePlayPause}>
-          {isPlaying ? <FaPause /> : <FaPlay />}
-        </div>
+      <div className="icon" onClick={togglePlayPause}>
+    {isPlaying ? <FaPause /> : <FaPlay />}
+  </div>
         <div className="progress-bar-container position-relative me-3">
           <Progress
             value={isDragging ? dragStartProgress : progress} // Use dragStartProgress if dragging
@@ -124,9 +126,7 @@ function Footer({ currentSong }) {
           onTimeUpdate={handleTimeUpdate}
           onError={handleAudioError}
         >
-          <source src={`https://5cf3-85-57-241-122.ngrok-free.app/${currentSong.archivo_audio}.mp3`} type="audio/mpeg" />
-          <source src={`https://5cf3-85-57-241-122.ngrok-free.app/${currentSong.archivo_audio}.ogg`} type="audio/ogg" />
-          <source src={`https://5cf3-85-57-241-122.ngrok-free.app/${currentSong.archivo_audio}.wav`} type="audio/wav" />
+          <source src={`https://5cf3-85-57-241-122.ngrok-free.app/${currentSong.archivo_audio}`} type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
       )}
