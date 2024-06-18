@@ -21,7 +21,7 @@ function Perfil() {
 
   useEffect(() => {
     if (userProfile?.foto) {
-      setPreviewPhoto(`https://backend-us-production-8ae2.up.railway.app/${userProfile.foto}`);
+      setPreviewPhoto(`https://5cf3-85-57-241-122.ngrok-free.app/${userProfile.foto}`);
     }
   }, [userProfile]);
 
