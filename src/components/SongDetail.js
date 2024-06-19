@@ -194,7 +194,8 @@ const SongDetails = () => {
 
   return (
     <div className="song-details-container">
-      
+      <div className='Infosong'>
+        <div className='info1'>
       <button className={"playlist-button"} onClick={() => navigate(`/anadir-a-playlist/${song.id}`)}> {/* Botón para añadir a playlist */}
         Añadir a Playlist
       </button>
@@ -202,9 +203,10 @@ const SongDetails = () => {
       {userProfile && userProfile.id === song.id_usuario && (
         <button className={"playlistedit-button"} onClick={handleEditClick}>Editar Canción</button>
       )}
-
+      </div>
       <h2 className="song-title">{song.titulo}</h2>
       <p className="song-artist">Artista: {song.artista}</p>
+      </div>
       <h3>Letra:</h3>
       {userProfile ? (
         renderLyrics()
