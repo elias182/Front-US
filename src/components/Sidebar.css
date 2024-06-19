@@ -78,6 +78,18 @@
     margin-right: 10px; /* Espacio entre la imagen y los demás elementos */
     border-radius: 15px;
   }
+  .infosong{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+  }
+  .info2{
+    display: flex;
+    flex-direction: column;
+  }
+  
   
 
 
