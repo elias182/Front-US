@@ -59,7 +59,8 @@
   .note-actions{
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 70vw;
+    justify-content: space-between;
   }
   .note-button{
     width: 50px;
@@ -80,4 +81,5 @@
     display: flex;
     flex-direction: column;
   }
+
   
