@@ -204,8 +204,10 @@ const SongDetails = () => {
         <button className={"playlistedit-button"} onClick={handleEditClick}>Editar Canción</button>
       )}
       </div>
+      <div className='info2'>
       <h2 className="song-title">{song.titulo}</h2>
       <p className="song-artist">Artista: {song.artista}</p>
+      </div>
       </div>
       <h3>Letra:</h3>
       {userProfile ? (
