@@ -18,38 +18,42 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Artista from './components/Artista';
 import Expandir from './components/Expandirplaylist';
 import Error404 from './components/Error404'; // Import the Error404 component
+import PrivateRoute from './components/PrivateRoute'; // Import the PrivateRoute component
+import { AuthProvider } from './components/AuthContext'; // Ensure AuthProvider is imported
 
 function App() {
   const [currentSong, setCurrentSong] = useState(null);
 
   return (
-    <Router>
-      <div className="App">
-        <Sidebar />
-        <div className="main">
-          <Header />
-          <div className="content">
-            <Routes>
-              <Route path="/" element={<Content />} />
-              <Route path="/add-cancion" element={<AñadirCancion />} />
-              <Route path="/editarcancion/:id" element={<AñadirCancion />} />
-              <Route path="/login" element={<LoginComponent />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/playlist/:id" element={<PlaylistDetail setCurrentSong={setCurrentSong} />} />
-              <Route path="/buscar" element={<Search setCurrentSong={setCurrentSong} />} />
-              <Route path="/perfil" element={<Perfil />} />
-              <Route path="/artista/:id" element={<Artista />} />
-              <Route path="/biblioteca" element={<UserPlaylists />} />
-              <Route path="/cancion/:id" element={<SongDetails />} />
-              <Route path="/artista/:id" element={<Artista />} />
-              <Route path="/anadir-a-playlist/:idCancion" element={<Expandir />} />
-              <Route path="/*" element={<Error404 />} /> {/* Catch-all route for 404 */}
-            </Routes>
+    <AuthProvider>
+      <Router>
+        <div className="App">
+          <Sidebar />
+          <div className="main">
+            <Header />
+            <div className="content">
+              <Routes>
+                <Route path="/" element={<Content />} />
+                <Route path="/add-cancion" element={<PrivateRoute element={AñadirCancion} />} />
+                <Route path="/editarcancion/:id" element={<PrivateRoute element={AñadirCancion} />} />
+                <Route path="/login" element={<LoginComponent />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/playlist/:id" element={<PlaylistDetail setCurrentSong={setCurrentSong} />} />
+                <Route path="/buscar" element={<Search setCurrentSong={setCurrentSong} />} />
+                <Route path="/perfil" element={<PrivateRoute element={Perfil} />} />
+                <Route path="/artista/:id" element={<Artista />} />
+                <Route path="/biblioteca" element={<PrivateRoute element={UserPlaylists} />} />
+                <Route path="/cancion/:id" element={<SongDetails />} />
+                <Route path="/artista/:id" element={<Artista />} />
+                <Route path="/anadir-a-playlist/:idCancion" element={<Expandir />} />
+                <Route path="/*" element={<Error404 />} /> {/* Catch-all route for 404 */}
+              </Routes>
+            </div>
+            <Footer currentSong={currentSong} />
           </div>
-          <Footer currentSong={currentSong} />
         </div>
-      </div>
-    </Router>
+      </Router>
+    </AuthProvider>
   );
 }
 

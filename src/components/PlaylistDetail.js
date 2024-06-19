@@ -84,6 +84,11 @@ const PlaylistDetail = ({ setCurrentSong }) => {
         <ul>
           {songs.map(song => (
             <li key={song.id} className="song-item">
+              <img 
+                src={`https://5cf3-85-57-241-122.ngrok-free.app/${song.portada}`} 
+                alt="Song Cover" 
+                className="song-cover"
+              />
               <FaPlay className="play-button" onClick={() => setCurrentSong(song)} />
               <Link to={`/cancion/${song.id}`} className="song-link">
                 {song.titulo}

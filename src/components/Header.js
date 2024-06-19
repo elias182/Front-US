@@ -10,6 +10,10 @@ function Header() {
   const handleProfileClick = () => {
     navigate('/perfil');
   };
+  const handleLogout = () => {
+    logout();
+    navigate('/'); // Navegar a la página principal después del logout
+  };
 
   return (
     <div className="header">
@@ -24,7 +28,7 @@ function Header() {
               style={{ cursor: 'pointer' }} // Cambia el cursor para indicar que es clickeable
             />
             <span>{userProfile?.name}</span>
-            <button onClick={logout} className="cta1">
+            <button onClick={handleLogout} className="cta1">
               <span>Log-Out</span>
               <svg width="15px" height="10px" viewBox="0 0 13 10">
                 <path d="M1,5 L11,5"></path>

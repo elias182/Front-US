@@ -151,6 +151,11 @@ const Search = ({ setCurrentSong }) => {
                     <ul>
                         {results.songs.map(song => (
                             <li key={song.id}>
+                                <img 
+                                    src={`https://5cf3-85-57-241-122.ngrok-free.app/${song.portada}`} 
+                                    alt="Song Cover" 
+                                    className="song-cover"
+                                />
                                 <FaPlay onClick={() => setCurrentSong(song)} style={{ cursor: 'pointer', marginRight: '10px' }} />
                                 <NavLink to={`/cancion/${song.id}`} className={"song-link"} activeClassName="active">
                                     {song.titulo}

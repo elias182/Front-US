@@ -12,16 +12,47 @@ function Footer({ currentSong }) {
   const audioRef = useRef(null); // Referencia al elemento de audio
 
   useEffect(() => {
-    if (currentSong) {
+    if (currentSong && audioRef.current) {
       // Reset progress when a new song starts
       setProgress(0);
+      setIsPlaying(false);
 
-      // Load the new song
-      if (audioRef.current) {
-        audioRef.current.load();
-        audioRef.current.play(); // Play the song automatically
-        setIsPlaying(true); // Update play state
-      }
+      const fetchAudio = async () => {
+        try {
+          const response = await fetch(`https://5cf3-85-57-241-122.ngrok-free.app/${currentSong.archivo_audio}.mp3`, {
+            headers: {
+              'ngrok-skip-browser-warning': 'true'
+            }
+          });
+
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+
+          const blob = await response.blob();
+          const url = URL.createObjectURL(blob);
+
+          audioRef.current.src = url;
+          audioRef.current.load();
+        } catch (error) {
+          console.error('Audio fetch error:', error);
+        }
+      };
+
+      // Play the song automatically when it's ready
+      const handleCanPlayThrough = () => {
+        audioRef.current.play();
+        setIsPlaying(true);
+        audioRef.current.removeEventListener('canplaythrough', handleCanPlayThrough);
+      };
+
+      fetchAudio();
+      audioRef.current.addEventListener('canplaythrough', handleCanPlayThrough);
+
+      // Clean up event listeners on component unmount or song change
+      return () => {
+        audioRef.current.removeEventListener('canplaythrough', handleCanPlayThrough);
+      };
     }
   }, [currentSong]);
 
@@ -33,11 +64,10 @@ function Footer({ currentSong }) {
   const handleProgressCommit = () => {
     setIsDragging(false); // Terminar el arrastre
     if (audioRef.current && isFinite(audioRef.current.duration)) {
-      const newTime = (progress) * audioRef.current.duration;
+      const newTime = (progress / 100) * audioRef.current.duration;
       audioRef.current.currentTime = newTime;
     }
   };
-  
 
   const handleVolumeChange = (e) => {
     const newVolume = e.target.value;
@@ -69,8 +99,8 @@ function Footer({ currentSong }) {
       }
     }
   };
-  
 
+  // Define handleAudioError to handle audio errors
   const handleAudioError = (e) => {
     console.error('Audio Error:', e);
   };
@@ -89,9 +119,9 @@ function Footer({ currentSong }) {
         </div>
       </div>
       <div className="controls d-flex align-items-center">
-      <div className="icon" onClick={togglePlayPause}>
-    {isPlaying ? <FaPause /> : <FaPlay />}
-  </div>
+        <div className="icon" onClick={togglePlayPause}>
+          {isPlaying ? <FaPause /> : <FaPlay />}
+        </div>
         <div className="progress-bar-container position-relative me-3">
           <Progress
             value={isDragging ? dragStartProgress : progress} // Use dragStartProgress if dragging
@@ -126,7 +156,6 @@ function Footer({ currentSong }) {
           onTimeUpdate={handleTimeUpdate}
           onError={handleAudioError}
         >
-          <source src={`https://5cf3-85-57-241-122.ngrok-free.app/${currentSong.archivo_audio}`} type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
       )}
