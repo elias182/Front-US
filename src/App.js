@@ -43,7 +43,8 @@ function App() {
                 <Route path="/perfil" element={<PrivateRoute element={Perfil} />} />
                 <Route path="/artista/:id" element={<Artista />} />
                 <Route path="/biblioteca" element={<PrivateRoute element={UserPlaylists} />} />
-                <Route path="/cancion/:id" element={<SongDetails setCurrentSong={setCurrentSong} />} />
+                <Route path="/cancion/:id" element={<SongDetails />} />
+                <Route path="/artista/:id" element={<Artista />} />
                 <Route path="/anadir-a-playlist/:idCancion" element={<Expandir />} />
                 <Route path="/*" element={<Error404 />} /> {/* Catch-all route for 404 */}
               </Routes>
