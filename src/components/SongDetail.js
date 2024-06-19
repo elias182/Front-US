@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams, useNavigate, NavLink } from 'react-router-dom';
 import { AuthContext } from './AuthContext';
-import { FaPlus, FaTrash, FaChevronDown, FaChevronUp, FaPlay } from 'react-icons/fa'; // Importamos el icono de FaPlay
+import { FaPlus, FaTrash, FaChevronDown, FaChevronUp } from 'react-icons/fa'; // Importamos el icono de FaChevronDown
 import './SongDetails.css';
 
-const SongDetails = ({ setCurrentSong }) => {
+const SongDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [song, setSong] = useState(null);
@@ -205,9 +205,8 @@ const SongDetails = ({ setCurrentSong }) => {
       )}
       </div>
       <div className='info2'>
-        <h2 className="song-title">{song.titulo}</h2>
-        <p className="song-artist">Artista: {song.artista}</p>
-        <FaPlay className="play-button" onClick={() => setCurrentSong(song)} style={{ cursor: 'pointer', fontSize: '24px' }} /> {/* Icono de reproducción */}
+      <h2 className="song-title">{song.titulo}</h2>
+      <p className="song-artist">Artista: {song.artista}</p>
       </div>
       </div>
       <h3>Letra:</h3>
