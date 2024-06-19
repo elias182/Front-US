@@ -17,27 +17,9 @@ function Footer({ currentSong }) {
       setProgress(0);
       setIsPlaying(false);
 
-      const fetchAudio = async () => {
-        try {
-          const response = await fetch(`https://5cf3-85-57-241-122.ngrok-free.app/${currentSong.archivo_audio}.mp3`, {
-            headers: {
-              'ngrok-skip-browser-warning': 'true'
-            }
-          });
-
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-
-          const blob = await response.blob();
-          const url = URL.createObjectURL(blob);
-
-          audioRef.current.src = url;
-          audioRef.current.load();
-        } catch (error) {
-          console.error('Audio fetch error:', error);
-        }
-      };
+      // Set the new song source
+      audioRef.current.src = `https://5cf3-85-57-241-122.ngrok-free.app/${currentSong.archivo_audio}.mp3`;
+      audioRef.current.load();
 
       // Play the song automatically when it's ready
       const handleCanPlayThrough = () => {
@@ -46,12 +28,19 @@ function Footer({ currentSong }) {
         audioRef.current.removeEventListener('canplaythrough', handleCanPlayThrough);
       };
 
-      fetchAudio();
       audioRef.current.addEventListener('canplaythrough', handleCanPlayThrough);
+
+      // Handle audio errors
+      const handleError = (e) => {
+        console.error('Audio Error:', e);
+      };
+
+      audioRef.current.addEventListener('error', handleError);
 
       // Clean up event listeners on component unmount or song change
       return () => {
         audioRef.current.removeEventListener('canplaythrough', handleCanPlayThrough);
+        audioRef.current.removeEventListener('error', handleError);
       };
     }
   }, [currentSong]);
@@ -156,6 +145,8 @@ function Footer({ currentSong }) {
           onTimeUpdate={handleTimeUpdate}
           onError={handleAudioError}
         >
+          <source src={`https://5cf3-85-57-241-122.ngrok-free.app/${currentSong.archivo_audio}`} type="audio/mpeg" />
+      
           Your browser does not support the audio element.
         </audio>
       )}
