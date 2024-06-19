@@ -12,36 +12,16 @@ function Footer({ currentSong }) {
   const audioRef = useRef(null); // Referencia al elemento de audio
 
   useEffect(() => {
-    if (currentSong && audioRef.current) {
+    if (currentSong) {
       // Reset progress when a new song starts
       setProgress(0);
-      setIsPlaying(false);
 
-      // Set the new song source
-      audioRef.current.src = `https://5cf3-85-57-241-122.ngrok-free.app/${currentSong.archivo_audio}.mp3`;
-      audioRef.current.load();
-
-      // Play the song automatically when it's ready
-      const handleCanPlayThrough = () => {
-        audioRef.current.play();
-        setIsPlaying(true);
-        audioRef.current.removeEventListener('canplaythrough', handleCanPlayThrough);
-      };
-
-      audioRef.current.addEventListener('canplaythrough', handleCanPlayThrough);
-
-      // Handle audio errors
-      const handleError = (e) => {
-        console.error('Audio Error:', e);
-      };
-
-      audioRef.current.addEventListener('error', handleError);
-
-      // Clean up event listeners on component unmount or song change
-      return () => {
-        audioRef.current.removeEventListener('canplaythrough', handleCanPlayThrough);
-        audioRef.current.removeEventListener('error', handleError);
-      };
+      // Load the new song
+      if (audioRef.current) {
+        audioRef.current.load();
+        audioRef.current.play(); // Play the song automatically
+        setIsPlaying(true); // Update play state
+      }
     }
   }, [currentSong]);
 
@@ -53,10 +33,11 @@ function Footer({ currentSong }) {
   const handleProgressCommit = () => {
     setIsDragging(false); // Terminar el arrastre
     if (audioRef.current && isFinite(audioRef.current.duration)) {
-      const newTime = (progress / 100) * audioRef.current.duration;
+      const newTime = (progress) * audioRef.current.duration;
       audioRef.current.currentTime = newTime;
     }
   };
+  
 
   const handleVolumeChange = (e) => {
     const newVolume = e.target.value;
@@ -88,8 +69,8 @@ function Footer({ currentSong }) {
       }
     }
   };
+  
 
-  // Define handleAudioError to handle audio errors
   const handleAudioError = (e) => {
     console.error('Audio Error:', e);
   };
@@ -108,9 +89,9 @@ function Footer({ currentSong }) {
         </div>
       </div>
       <div className="controls d-flex align-items-center">
-        <div className="icon" onClick={togglePlayPause}>
-          {isPlaying ? <FaPause /> : <FaPlay />}
-        </div>
+      <div className="icon" onClick={togglePlayPause}>
+    {isPlaying ? <FaPause /> : <FaPlay />}
+  </div>
         <div className="progress-bar-container position-relative me-3">
           <Progress
             value={isDragging ? dragStartProgress : progress} // Use dragStartProgress if dragging
@@ -146,7 +127,6 @@ function Footer({ currentSong }) {
           onError={handleAudioError}
         >
           <source src={`https://5cf3-85-57-241-122.ngrok-free.app/${currentSong.archivo_audio}`} type="audio/mpeg" />
-      
           Your browser does not support the audio element.
         </audio>
       )}
