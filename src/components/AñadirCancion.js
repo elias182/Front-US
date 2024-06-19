@@ -109,6 +109,7 @@ function AñadirCancion() {
         {!id && (
           <div className="form-group">
             <label className='labelform' htmlFor="letra">Letra</label>
+            <p>recuerda: La letra la tienes que subir en verso y bien compuesta ya que si no los usuarios no tendran una buena iteraccion con la letra</p>
             <textarea
               id="letra"
               value={letra}
